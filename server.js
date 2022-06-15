@@ -2,8 +2,9 @@ const express = require("express");
 const app = express();
 const PORT = 2121;
 
-app.use(() => {
+app.use((req, res) => {
   console.log("WE GOT A NEW REQUEST");
+  res.send("This is a response");
 });
 
 app.listen(PORT, () => {
