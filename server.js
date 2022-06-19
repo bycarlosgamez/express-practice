@@ -7,6 +7,15 @@ const PORT = 2121;
 //   res.send("This is a response");
 // });
 
+app.get("/", (req, res) => {
+  res.send(`This is the home page`);
+});
+
+app.get("/r/:rappers", (req, res) => {
+  const { rappers } = req.params;
+  res.send(`This is ${rappers}'s page`);
+});
+
 app.get("/21savage", (req, res) => {
   res.send(`2121212121212121`);
 });
