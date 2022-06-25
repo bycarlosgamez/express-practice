@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
+const path = require("path");
 const PORT = 2121;
 
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views"));
 
 // app.use((req, res) => {
 //   console.log("WE GOT A NEW REQUEST");
