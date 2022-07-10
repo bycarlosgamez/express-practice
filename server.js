@@ -22,7 +22,7 @@ app.get("/random", (req, res) => {
 
 app.get("/r/:rappers", (req, res) => {
   const { rappers } = req.params;
-  res.send(`This is ${rappers}'s page`);
+  res.render(`rappers.ejs`, { rappers });
 });
 
 app.get("/r/:rappers/:lyrics", (req, res) => {

@@ -9,5 +9,11 @@
     <h1>The Random Page</h1>
 
     <h2>Your random number is: <%= rand %></h2>
+
+    <% if(rand % 2 === 0){ %>
+    <h3>That is an even number!</h3>
+    <% } else { %>
+    <h3>That is an odd number!</h3>
+    <% } %>
   </body>
 </html>
