@@ -20,24 +20,27 @@ app.get("/random", (req, res) => {
   res.render("random.ejs", { rand: num });
 });
 
-app.get("/r/:rappers", (req, res) => {
-  const { rappers } = req.params;
-  res.render(`rappers.ejs`, { rappers });
+app.get("/guitars", (req, res) => {
+  const guitars = [
+    "jaguar",
+    "jazzmaster",
+    "telecaster",
+    "mustang",
+    "stratocaster",
+  ];
+  res.render("guitars.ejs", { guitars });
 });
 
-app.get("/r/:rappers/:lyrics", (req, res) => {
-  const { rappers, lyrics } = req.params;
+app.get("/r/:subreddit", (req, res) => {
+  const { subreddit } = req.params;
+  res.render(`subreddit.ejs`, { subreddit });
+});
+
+app.get("/r/:subreddit/:idnumber", (req, res) => {
+  const { subreddit, idnumber } = req.params;
   res.send(
-    `This is ${rappers}'s page, currently looking at lyrics for ${lyrics}`
+    `This is ${subreddit}'s page, currently looking at idnumber for ${idnumber}`
   );
-});
-
-app.get("/21savage", (req, res) => {
-  res.send(`2121212121212121`);
-});
-
-app.get("/kendrick", (req, res) => {
-  res.send("I'm so fuckin' sick and tired of the Photoshop");
 });
 
 app.get("/search", (req, res) => {
