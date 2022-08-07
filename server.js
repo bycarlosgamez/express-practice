@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const redditData = require("./data.json");
 const PORT = 2121;
 
 app.set("view engine", "ejs");
@@ -33,14 +34,12 @@ app.get("/guitars", (req, res) => {
 
 app.get("/r/:subreddit", (req, res) => {
   const { subreddit } = req.params;
-  res.render(`subreddit.ejs`, { subreddit });
-});
-
-app.get("/r/:subreddit/:idnumber", (req, res) => {
-  const { subreddit, idnumber } = req.params;
-  res.send(
-    `This is ${subreddit}'s page, currently looking at idnumber for ${idnumber}`
-  );
+  const data = redditData[subreddit];
+  if (data) {
+    res.render(`subreddit.ejs`, { ...data });
+  } else {
+    res.render("notfound", { subreddit });
+  }
 });
 
 app.get("/search", (req, res) => {
