@@ -4,8 +4,11 @@ const path = require("path");
 const redditData = require("./data.json");
 const PORT = 2121;
 
+app.use(express.static("public"));
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
+app.set("public", path.join(__dirname, "/public"));
 
 // app.use((req, res) => {
 //   console.log("WE GOT A NEW REQUEST");
